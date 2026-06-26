@@ -35,8 +35,16 @@ export function SectionNav() {
   return (
     <nav
       aria-label="Chapters"
+      aria-keyshortcuts="ArrowUp ArrowDown"
       className="fixed right-5 top-1/2 z-40 hidden -translate-y-1/2 lg:block"
     >
+      <div
+        title="Use Up / Down arrow keys to move between chapters"
+        className="mb-4 flex flex-col items-end gap-1"
+      >
+        <kbd className="rounded border border-white/15 bg-white/5 px-1 text-[10px] leading-5 text-slate-400">↑</kbd>
+        <kbd className="rounded border border-white/15 bg-white/5 px-1 text-[10px] leading-5 text-slate-400">↓</kbd>
+      </div>
       <ul className="flex flex-col items-end gap-3">
         {chapters.map((c) => {
           const isActive = active === c.id

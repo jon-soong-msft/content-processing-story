@@ -47,7 +47,7 @@ export function Handoff() {
           <motion.div
             initial={reduce ? false : { opacity: 0, scale: 0.8, x: -40 }}
             whileInView={{ opacity: 1, scale: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ amount: 0.5 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="w-72 rounded-2xl border border-white/10 bg-[#0e1726] p-5 shadow-2xl"
           >

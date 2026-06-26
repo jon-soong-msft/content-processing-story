@@ -93,14 +93,21 @@ export function Hero() {
         transition={{ delay: 1 }}
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
       >
-        <motion.div
-          animate={reduce ? undefined : { y: [0, 8, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-          className="flex flex-col items-center gap-1 text-slate-500"
-        >
-          <span className="text-[11px] uppercase tracking-widest">Scroll</span>
-          <Icon name="chevronDown" className="h-5 w-5" />
-        </motion.div>
+        <div className="flex flex-col items-center gap-2">
+          <motion.div
+            animate={reduce ? undefined : { y: [0, 8, 0] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+            className="flex flex-col items-center gap-1 text-slate-500"
+          >
+            <span className="text-[11px] uppercase tracking-widest">Scroll</span>
+            <Icon name="chevronDown" className="h-5 w-5" />
+          </motion.div>
+          <span className="hidden items-center gap-1.5 text-[10px] uppercase tracking-widest text-slate-600 sm:flex">
+            or press
+            <kbd className="rounded border border-white/20 bg-white/5 px-1.5 py-0.5 font-sans text-slate-400">↑</kbd>
+            <kbd className="rounded border border-white/20 bg-white/5 px-1.5 py-0.5 font-sans text-slate-400">↓</kbd>
+          </span>
+        </div>
       </motion.div>
     </section>
   )

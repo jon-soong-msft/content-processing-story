@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { AnimatePresence, motion, useInView } from 'framer-motion'
+import { AnimatePresence, motion, useInView, useReducedMotion } from 'framer-motion'
 import { StickyStage } from '../components/SceneContainer'
 import { CopilotChat } from '../components/build/CopilotChat'
 import { Terminal } from '../components/build/Terminal'
@@ -19,14 +19,22 @@ const status: Record<Phase, { text: string; tone: string }> = {
 }
 
 export function Build() {
+  const reduce = useReducedMotion()
   const [phase, setPhase] = useState<Phase>('idle')
+  const [runId, setRunId] = useState(0)
   const stageRef = useRef<HTMLDivElement>(null)
-  const inView = useInView(stageRef, { amount: 0.5, once: true })
+  const inView = useInView(stageRef, { amount: 0.45 })
   const alex = personas.alex
 
+  // Play on enter; rewind and replay from the top when the chapter leaves view.
   useEffect(() => {
-    if (inView && phase === 'idle') setPhase('copilot')
-  }, [inView, phase])
+    if (inView && phase === 'idle') {
+      setPhase('copilot')
+    } else if (!inView && phase !== 'idle' && !reduce) {
+      setPhase('idle')
+      setRunId((n) => n + 1)
+    }
+  }, [inView, phase, reduce])
 
   const showArch = phase === 'arch' || phase === 'done'
 
@@ -64,7 +72,7 @@ export function Build() {
           <AnimatePresence mode="wait">
             {!showArch ? (
               <motion.div
-                key="ide"
+                key={`ide-${runId}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0, scale: 0.98 }}
@@ -87,7 +95,7 @@ export function Build() {
               </motion.div>
             ) : (
               <motion.div
-                key="arch"
+                key={`arch-${runId}`}
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}

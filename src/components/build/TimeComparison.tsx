@@ -55,7 +55,7 @@ function Count({
 export function TimeComparison() {
   const reduce = useReducedMotion()
   const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, amount: 0.4 })
+  const inView = useInView(ref, { amount: 0.4, once: reduce === true })
   const active = inView
 
   return (

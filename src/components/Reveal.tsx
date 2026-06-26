@@ -26,7 +26,7 @@ export function Reveal({
   y = 28,
   x = 0,
   amount = 0.3,
-  once = true,
+  once = false,
 }: RevealProps) {
   const reduce = useReducedMotion()
 

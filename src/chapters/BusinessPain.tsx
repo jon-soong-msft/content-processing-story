@@ -68,7 +68,7 @@ function DocumentStack() {
           key={doc.label}
           initial={reduce ? false : { opacity: 0, y: 40, rotate: 0 }}
           whileInView={{ opacity: 1, y: doc.y, rotate: doc.rotate }}
-          viewport={{ once: true, amount: 0.4 }}
+          viewport={{ amount: 0.4 }}
           transition={{ duration: 0.6, delay: 0.1 + i * 0.12, ease: [0.16, 1, 0.3, 1] }}
           style={{ x: doc.x, zIndex: i }}
           className="absolute h-56 w-44 rounded-xl border border-white/10 bg-[#0e1726] p-4 shadow-2xl"
@@ -91,7 +91,7 @@ function DocumentStack() {
       <motion.div
         initial={reduce ? false : { opacity: 0, scale: 0.6 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, amount: 0.4 }}
+        viewport={{ amount: 0.4 }}
         transition={{ duration: 0.5, delay: 0.7, type: 'spring', stiffness: 220, damping: 16 }}
         className="absolute -bottom-2 right-2 z-20 flex items-center gap-2 rounded-full border border-fluent-red/40 bg-ink-950/90 px-4 py-2 shadow-xl backdrop-blur"
       >

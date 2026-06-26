@@ -35,7 +35,7 @@ export function Discovery() {
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ amount: 0.4 }}
             transition={{ duration: 0.7 }}
             className="mx-auto mt-12 max-w-3xl overflow-hidden rounded-2xl border border-white/12 bg-[#0d1117] shadow-2xl"
           >

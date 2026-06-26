@@ -1,0 +1,139 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------ */
+/*  Theme — Azure / Microsoft Fluent inspired                          */
+/* ------------------------------------------------------------------ */
+@theme {
+  --font-sans: 'Segoe UI', 'Segoe UI Variable Text', system-ui, -apple-system,
+    BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Cascadia Code', 'Cascadia Mono', 'Consolas', ui-monospace,
+    'SF Mono', Menlo, monospace;
+
+  /* Azure blue scale (anchored on Microsoft Azure #0078D4) */
+  --color-azure-50: #eaf3fc;
+  --color-azure-100: #cfe4fa;
+  --color-azure-200: #a6cdf5;
+  --color-azure-300: #6fb0ee;
+  --color-azure-400: #3a90e6;
+  --color-azure-500: #0078d4;
+  --color-azure-600: #006abc;
+  --color-azure-700: #0058a0;
+  --color-azure-800: #06477f;
+  --color-azure-900: #0a2a4d;
+  --color-azure-950: #061a30;
+
+  /* Deep navy "ink" backgrounds */
+  --color-ink-950: #050b16;
+  --color-ink-900: #081120;
+  --color-ink-800: #0c1a2e;
+  --color-ink-700: #122642;
+
+  /* Accents */
+  --color-accent: #50e6ff; /* Azure light-blue glow */
+  --color-fluent-yellow: #ffb900;
+  --color-fluent-teal: #00b294;
+  --color-fluent-magenta: #e3008c;
+  --color-fluent-green: #7fba00;
+  --color-fluent-red: #f25022;
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink-950 font-sans text-slate-100 antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-accent) 35%, transparent);
+  color: #fff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-azure-800);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-azure-700);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Utilities                                                          */
+/* ------------------------------------------------------------------ */
+@utility text-gradient {
+  background: linear-gradient(
+    100deg,
+    var(--color-accent),
+    var(--color-azure-300) 55%,
+    #fff
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility grid-bg {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-azure-500) 8%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-azure-500) 8%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px;
+}
+
+/* Blinking caret for typewriter elements */
+@keyframes caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.caret::after {
+  content: '';
+  display: inline-block;
+  width: 0.6ch;
+  height: 1.1em;
+  margin-left: 1px;
+  translate: 0 0.18em;
+  background: currentColor;
+  animation: caret-blink 1s steps(1) infinite;
+}

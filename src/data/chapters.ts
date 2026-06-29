@@ -14,4 +14,5 @@ export const chapters: ChapterMeta[] = [
   { id: 'build', nav: 'The Build', step: 'Chapter 04' },
   { id: 'payoff', nav: 'The Payoff', step: 'Chapter 05' },
   { id: 'closing', nav: 'Deploy It', step: '' },
+  { id: 'catalog', nav: 'More', step: '' },
 ]

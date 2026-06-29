@@ -21,6 +21,14 @@ export type IconName =
   | 'copilot'
   | 'git'
   | 'arrowRight'
+  | 'message'
+  | 'shield'
+  | 'chart'
+  | 'code'
+  | 'search'
+  | 'agents'
+  | 'rocket'
+  | 'grid'
 
 const paths: Record<IconName, ReactElement> = {
   clock: (
@@ -129,6 +137,47 @@ const paths: Record<IconName, ReactElement> = {
     </>
   ),
   arrowRight: <path d="M5 12h14M13 6l6 6-6 6" />,
+  message: <path d="M5 5h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H9l-4 4V6a1 1 0 0 1 1-1Z" />,
+  shield: <path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" />,
+  chart: (
+    <>
+      <path d="M4 20h16" />
+      <path d="M7 20v-6M12 20V8M17 20v-9" />
+    </>
+  ),
+  code: (
+    <>
+      <path d="M9 8l-4 4 4 4" />
+      <path d="M15 8l4 4-4 4" />
+    </>
+  ),
+  search: (
+    <>
+      <circle cx="11" cy="11" r="6" />
+      <path d="M20 20l-4-4" />
+    </>
+  ),
+  agents: (
+    <>
+      <circle cx="9" cy="9" r="3" />
+      <path d="M3 19a6 6 0 0 1 12 0" />
+      <path d="M16 7a3 3 0 0 1 0 5M18.5 19a6 6 0 0 0-3-5" />
+    </>
+  ),
+  rocket: (
+    <>
+      <path d="M5 15c-1 1-1 4-1 4s3 0 4-1m10-12c-3 0-6 2-8 6-1 2-2 3-2 3l3 3s1-1 3-2c4-2 6-5 6-8a3 3 0 0 0-2-2Z" />
+      <circle cx="14.5" cy="9.5" r="1.4" />
+    </>
+  ),
+  grid: (
+    <>
+      <rect x="4" y="4" width="7" height="7" rx="1.4" />
+      <rect x="13" y="4" width="7" height="7" rx="1.4" />
+      <rect x="4" y="13" width="7" height="7" rx="1.4" />
+      <rect x="13" y="13" width="7" height="7" rx="1.4" />
+    </>
+  ),
 }
 
 interface IconProps extends SVGProps<SVGSVGElement> {

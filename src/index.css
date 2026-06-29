@@ -52,6 +52,18 @@ body {
   overflow-x: hidden;
 }
 
+/* Tailwind v4 removed the default pointer cursor on interactive elements. */
+button,
+a,
+[role='button'],
+summary {
+  cursor: pointer;
+}
+button:disabled,
+[aria-disabled='true'] {
+  cursor: default;
+}
+
 ::selection {
   background: color-mix(in srgb, var(--color-accent) 35%, transparent);
   color: #fff;

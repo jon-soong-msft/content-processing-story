@@ -92,7 +92,7 @@ export function TimeComparison() {
         label={timeComparison.after.label}
         note={timeComparison.after.note}
         number={<Count to={timeComparison.after.value} suffix=" min" active={active} reduce={!!reduce} />}
-        barWidth="2.5%"
+        barWidth="3.3%"
         color="var(--color-fluent-teal)"
         active={active}
         reduce={!!reduce}

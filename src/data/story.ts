@@ -77,5 +77,5 @@ export const valueStats: ValueStat[] = [
 /** Used by the hours → minutes comparison animation. */
 export const timeComparison = {
   before: { value: 5, unit: 'hours', label: 'Manual review', note: 'read, reconcile, repeat' },
-  after: { value: 10, unit: 'minutes', label: 'With the accelerator', note: 'extract, summarize, flag gaps' },
+  after: { value: 6, unit: 'minutes', label: 'With the accelerator', note: 'extract, summarize, flag gaps' },
 }

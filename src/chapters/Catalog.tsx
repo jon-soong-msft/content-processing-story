@@ -176,7 +176,7 @@ export function Catalog() {
               Explore all accelerators at accelerators.ms
               <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
-            <p className="text-xs text-slate-500">Pick your use case · deploy in minutes · build the rest at the hackathon</p>
+            <p className="text-xs text-slate-500">Pick your use case · deploy in minutes · build the rest</p>
           </div>
         </Reveal>
       </div>

@@ -8,7 +8,7 @@ import { PersonaAvatar } from '../components/PersonaAvatar'
 import { personas } from '../data/personas'
 import { Icon } from '../components/icons/Icon'
 import { usePlayOnce } from '../hooks/usePlayOnce'
-import alexBuild from '../data/voice_snippets/Alex_phase2.wav'
+import alexBuild from '../data/voice_snippets/Alex_phase2_new.wav'
 
 type Phase = 'idle' | 'copilot' | 'terminal' | 'arch' | 'done'
 

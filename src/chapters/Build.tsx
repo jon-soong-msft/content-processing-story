@@ -7,6 +7,8 @@ import { ArchitectureDiagram } from '../components/build/ArchitectureDiagram'
 import { PersonaAvatar } from '../components/PersonaAvatar'
 import { personas } from '../data/personas'
 import { Icon } from '../components/icons/Icon'
+import { usePlayOnce } from '../hooks/usePlayOnce'
+import alexBuild from '../data/voice_snippets/Alex_phase2.wav'
 
 type Phase = 'idle' | 'copilot' | 'terminal' | 'arch' | 'done'
 
@@ -25,6 +27,7 @@ export function Build() {
   const stageRef = useRef<HTMLDivElement>(null)
   const inView = useInView(stageRef, { amount: 0.45 })
   const alex = personas.alex
+  usePlayOnce(alexBuild, inView)
 
   // Play on enter; rewind and replay from the top when the chapter leaves view.
   useEffect(() => {

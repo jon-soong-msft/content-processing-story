@@ -1,3 +1,5 @@
+import { useRef } from 'react'
+import { useInView } from 'framer-motion'
 import { Section } from '../components/SceneContainer'
 import { Kicker } from '../components/Kicker'
 import { Reveal } from '../components/Reveal'
@@ -5,13 +7,18 @@ import { PersonaAvatar } from '../components/PersonaAvatar'
 import { TimeComparison } from '../components/build/TimeComparison'
 import { valueStats } from '../data/story'
 import { personas } from '../data/personas'
+import { usePlayOnce } from '../hooks/usePlayOnce'
+import sarahPayoff from '../data/voice_snippets/Sarah_phase3.wav'
 
 export function Payoff() {
   const sarah = personas.sarah
+  const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { amount: 0.4, once: true })
+  usePlayOnce(sarahPayoff, inView)
 
   return (
     <Section id="payoff">
-      <div className="mx-auto w-full max-w-6xl">
+      <div ref={ref} className="mx-auto w-full max-w-6xl">
         <div className="text-center">
           <Reveal>
             <Kicker step="Chapter 06" name="The Payoff" className="justify-center" />

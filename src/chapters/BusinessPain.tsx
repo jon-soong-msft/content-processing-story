@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { Section } from '../components/SceneContainer'
 import { Kicker } from '../components/Kicker'
 import { Reveal } from '../components/Reveal'
@@ -7,6 +8,8 @@ import { Icon } from '../components/icons/Icon'
 import type { IconName } from '../components/icons/Icon'
 import { personas } from '../data/personas'
 import { painPoints } from '../data/story'
+import { usePlayOnce } from '../hooks/usePlayOnce'
+import sarahPain from '../data/voice_snippets/Sarah_phase1_new.wav'
 
 const docs = [
   { label: 'Auto claim form', tint: 'var(--color-azure-400)', rotate: -8, x: -16, y: 8 },
@@ -16,9 +19,13 @@ const docs = [
 ]
 
 export function BusinessPain() {
+  const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { amount: 0.4, once: true })
+  usePlayOnce(sarahPain, inView)
+
   return (
     <Section id="pain" className="bg-gradient-to-b from-transparent via-ink-900/40 to-transparent">
-      <div className="mx-auto w-full max-w-6xl">
+      <div ref={ref} className="mx-auto w-full max-w-6xl">
         <div className="grid items-center gap-12 md:grid-cols-2">
           {/* Narrative */}
           <div>

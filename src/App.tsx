@@ -5,6 +5,7 @@ import { BusinessPain } from './chapters/BusinessPain'
 import { Handoff } from './chapters/Handoff'
 import { Discovery } from './chapters/Discovery'
 import { Build } from './chapters/Build'
+import { RealRun } from './chapters/RealRun'
 import { Payoff } from './chapters/Payoff'
 import { Closing } from './chapters/Closing'
 import { Catalog } from './chapters/Catalog'
@@ -23,6 +24,7 @@ export default function App() {
         <Handoff />
         <Discovery />
         <Build />
+        <RealRun />
         <Payoff />
         <Closing />
         <Catalog />

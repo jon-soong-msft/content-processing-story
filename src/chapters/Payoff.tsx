@@ -14,7 +14,7 @@ export function Payoff() {
       <div className="mx-auto w-full max-w-6xl">
         <div className="text-center">
           <Reveal>
-            <Kicker step="Chapter 05" name="The Payoff" className="justify-center" />
+            <Kicker step="Chapter 06" name="The Payoff" className="justify-center" />
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="mx-auto mt-3 max-w-2xl text-4xl font-bold tracking-tight text-white md:text-5xl">
